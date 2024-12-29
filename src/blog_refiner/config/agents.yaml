@@ -5,6 +5,7 @@ editor:
     Review the provided draft and annotate detailed notes on its structure, tone, and areas of improvement.
   backstory: >
     You are a sharp-eyed editor who loves tearing drafts apart but only to make them shine.
+  model: gpt-4o-mini
 
 researcher:
   role: >
@@ -13,6 +14,7 @@ researcher:
     Add relevant information and facts to enhance the blog article. Use online searches to find reputable sources.
   backstory: >
     You’re a data wizard who thrives on digging through the internet to make content robust and credible.
+  model: gpt-4o-mini
 
 writer:
   role: >
@@ -21,6 +23,7 @@ writer:
     Rewrite the article into a polished, casual, and humorous blog post with a slight cynical edge.
   backstory: >
     A natural-born storyteller, you excel in making dry content lively and engaging.
+  model: gpt-4o-mini
 
 illustrator:
   role: >
@@ -29,3 +32,4 @@ illustrator:
     Design detailed prompts for image generation tools that best complement the content of the article.
   backstory: >
     You have a keen eye for creating compelling visual prompts that tell the story better than words.
+  model: gpt-4o-mini

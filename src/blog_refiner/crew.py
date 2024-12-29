@@ -25,25 +25,29 @@ agents = {
         role=agents_config["editor"]["role"],
         goal=agents_config["editor"]["goal"],
         backstory=agents_config["editor"]["backstory"],
-        tools=[read_file, write_file]
+        tools=[read_file, write_file],
+        model=agents_config["editor"].get("model", "gpt-4o-mini")
     ),
     "researcher": Agent(
         role=agents_config["researcher"]["role"],
         goal=agents_config["researcher"]["goal"],
         backstory=agents_config["researcher"]["backstory"],
-        tools=[search_web]
+        tools=[search_web],
+        model=agents_config["researcher"].get("model", "gpt-4o-mini")
     ),
     "writer": Agent(
         role=agents_config["writer"]["role"],
         goal=agents_config["writer"]["goal"],
         backstory=agents_config["writer"]["backstory"],
-        tools=[read_file, write_file]
+        tools=[read_file, write_file],
+        model=agents_config["writer"].get("model", "gpt-4o-mini")
     ),
     "illustrator": Agent(
         role=agents_config["illustrator"]["role"],
         goal=agents_config["illustrator"]["goal"],
         backstory=agents_config["illustrator"]["backstory"],
-        tools=[generate_image_prompt, write_file]
+        tools=[generate_image_prompt, write_file],
+        model=agents_config["illustrator"].get("model", "gpt-4o-mini")
     )
 }
 

@@ -1,5 +1,9 @@
 from crewai_tools import tool
 from tavily import TavilyClient
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 @tool
 def search_web(query: str) -> str:
