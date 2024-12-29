@@ -1,23 +1,29 @@
 edit_draft_task:
   description: >
-    Review the draft and provide detailed notes on structure, tone, grammar, and improvements needed.
+    Review the draft located at {draft_file} and provide detailed notes on structure, tone, grammar, and improvements needed.
+    Find sections that appear to be more like sections of outlines and annotate them for the writer to be able to develop them
+    into their own 100-200 word paragraphs. Your notes and annotations must pertain to the draft. Be ruthless in your critique.
   expected_output: >
-    A DOCX file with comments and annotations on the draft.
+    A TXT file with comments and annotations on the draft located at {draft_file}.
 
 enrich_content_task:
   description: >
-    Use online searches to enrich the article with factual and relevant information. Add reputable sources and key data.
+    Use notes and annotations from the editor to perform online searches and enrich the article located at {draft_file}
+    with factual and relevant information. Add reputable sources and key data. The searches and enrichment should focus on
+    topics found within the draft and/or editor's notes.
   expected_output: >
-    A TXT file with enriched content and cited references.
+    A TXT file with enriched content and cited references based on {draft_file}.
 
 rewrite_draft_task:
   description: >
-    Rewrite the draft based on editor's notes and enriched content. Use a casual, humorous, and slightly cynical tone.
+    Rewrite the draft located at {draft_file} based on editor's notes and enriched content. Use a casual, humorous, and slightly
+    cynical tone. The revised content should have considerable overlap with the draft, while being a better version of the draft.
+    If there is little overlap, then the attempt should be considered a failure.
   expected_output: >
-    A polished DOCX file formatted for publication.
+    A polished DOCX file formatted for publication, based on the draft located at {draft_file}.
 
 generate_prompts_task:
   description: >
-    Create text-based prompts for DALL-E 3 to generate images that complement the blog's content.
+    Create text-based prompts for DALL-E 3 to generate images that complement the blog's content from the draft located at {draft_file}.
   expected_output: >
-    A TXT file with detailed DALL-E 3 prompts.
+    A TXT file with detailed DALL-E 3 prompts tailored to the draft located at {draft_file}.

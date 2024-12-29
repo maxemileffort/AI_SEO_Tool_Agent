@@ -6,6 +6,7 @@ editor:
   backstory: >
     You are a sharp-eyed editor who loves tearing drafts apart but only to make them shine.
   model: gpt-4o-mini
+  verbose: true
 
 researcher:
   role: >
@@ -15,6 +16,7 @@ researcher:
   backstory: >
     You’re a data wizard who thrives on digging through the internet to make content robust and credible.
   model: gpt-4o-mini
+  verbose: true
 
 writer:
   role: >
@@ -24,6 +26,7 @@ writer:
   backstory: >
     A natural-born storyteller, you excel in making dry content lively and engaging.
   model: gpt-4o-mini
+  verbose: true
 
 illustrator:
   role: >
@@ -33,3 +36,4 @@ illustrator:
   backstory: >
     You have a keen eye for creating compelling visual prompts that tell the story better than words.
   model: gpt-4o-mini
+  verbose: false

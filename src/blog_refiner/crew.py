@@ -26,51 +26,55 @@ agents = {
         goal=agents_config["editor"]["goal"],
         backstory=agents_config["editor"]["backstory"],
         tools=[read_file, write_file],
-        model=agents_config["editor"].get("model", "gpt-4o-mini")
+        model=agents_config["editor"].get("model", "gpt-4o-mini"),
+        verbose=agents_config["editor"].get("verbose", False)
     ),
     "researcher": Agent(
         role=agents_config["researcher"]["role"],
         goal=agents_config["researcher"]["goal"],
         backstory=agents_config["researcher"]["backstory"],
         tools=[search_web],
-        model=agents_config["researcher"].get("model", "gpt-4o-mini")
+        model=agents_config["researcher"].get("model", "gpt-4o-mini"),
+        verbose=agents_config["editor"].get("verbose", False)
     ),
     "writer": Agent(
         role=agents_config["writer"]["role"],
         goal=agents_config["writer"]["goal"],
         backstory=agents_config["writer"]["backstory"],
         tools=[read_file, write_file],
-        model=agents_config["writer"].get("model", "gpt-4o-mini")
+        model=agents_config["writer"].get("model", "gpt-4o-mini"),
+        verbose=agents_config["editor"].get("verbose", False)
     ),
     "illustrator": Agent(
         role=agents_config["illustrator"]["role"],
         goal=agents_config["illustrator"]["goal"],
         backstory=agents_config["illustrator"]["backstory"],
         tools=[generate_image_prompt, write_file],
-        model=agents_config["illustrator"].get("model", "gpt-4o-mini")
+        model=agents_config["illustrator"].get("model", "gpt-4o-mini"),
+        verbose=agents_config["editor"].get("verbose", False)
     )
 }
 
 # Initialize Tasks
 tasks = [
     Task(
-        description=tasks_config["edit_draft_task"]["description"],
-        expected_output=tasks_config["edit_draft_task"]["expected_output"],
+        description=tasks_config["edit_draft_task"]["description"].format(**{"draft_file": "{draft_file}"}),
+        expected_output=tasks_config["edit_draft_task"]["expected_output"].format(**{"draft_file": "{draft_file}"}),
         agent=agents["editor"]
     ),
     Task(
-        description=tasks_config["enrich_content_task"]["description"],
-        expected_output=tasks_config["enrich_content_task"]["expected_output"],
+        description=tasks_config["enrich_content_task"]["description"].format(**{"draft_file": "{draft_file}"}),
+        expected_output=tasks_config["enrich_content_task"]["expected_output"].format(**{"draft_file": "{draft_file}"}),
         agent=agents["researcher"]
     ),
     Task(
-        description=tasks_config["rewrite_draft_task"]["description"],
-        expected_output=tasks_config["rewrite_draft_task"]["expected_output"],
+        description=tasks_config["rewrite_draft_task"]["description"].format(**{"draft_file": "{draft_file}"}),
+        expected_output=tasks_config["rewrite_draft_task"]["expected_output"].format(**{"draft_file": "{draft_file}"}),
         agent=agents["writer"]
     ),
     Task(
-        description=tasks_config["generate_prompts_task"]["description"],
-        expected_output=tasks_config["generate_prompts_task"]["expected_output"],
+        description=tasks_config["generate_prompts_task"]["description"].format(**{"draft_file": "{draft_file}"}),
+        expected_output=tasks_config["generate_prompts_task"]["expected_output"].format(**{"draft_file": "{draft_file}"}),
         agent=agents["illustrator"]
     )
 ]

@@ -24,17 +24,27 @@ def read_file(file_path: str) -> str:
 @tool
 def write_file(file_path: str, content: str) -> str:
     """
-    Writes content to DOCX, PDF, or TXT files.
+    Writes content to DOCX, PDF, or TXT files in the ../outputs folder.
     """
+    import os
     _, ext = os.path.splitext(file_path)
+    file_name = os.path.basename(file_path)
+    
+    # Ensure the outputs folder exists
+    outputs_folder = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../outputs'))
+    os.makedirs(outputs_folder, exist_ok=True)
+    
+    # Create the full path for the output file
+    output_dest = os.path.join(outputs_folder, file_name)
+    
     if ext.lower() == '.txt':
-        with open(file_path, 'w', encoding='utf-8') as file:
+        with open(output_dest, 'w', encoding='utf-8') as file:
             file.write(content)
     elif ext.lower() == '.docx':
         import docx
         doc = docx.Document()
         doc.add_paragraph(content)
-        doc.save(file_path)
+        doc.save(output_dest)
     elif ext.lower() == '.pdf':
         from fpdf import FPDF
         pdf = FPDF()
@@ -42,7 +52,9 @@ def write_file(file_path: str, content: str) -> str:
         pdf.set_auto_page_break(auto=True, margin=15)
         pdf.set_font("Arial", size=12)
         pdf.multi_cell(0, 10, content)
-        pdf.output(file_path)
+        pdf.output(output_dest)
     else:
         return f"Unsupported file format: {ext}"
-    return f"File written successfully to {file_path}"
+    
+    return f"File written successfully to {output_dest}"
+
