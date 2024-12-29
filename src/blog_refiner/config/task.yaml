@@ -1,0 +1,23 @@
+edit_draft_task:
+  description: >
+    Review the draft and provide detailed notes on structure, tone, grammar, and improvements needed.
+  expected_output: >
+    A DOCX file with comments and annotations on the draft.
+
+enrich_content_task:
+  description: >
+    Use online searches to enrich the article with factual and relevant information. Add reputable sources and key data.
+  expected_output: >
+    A TXT file with enriched content and cited references.
+
+rewrite_draft_task:
+  description: >
+    Rewrite the draft based on editor's notes and enriched content. Use a casual, humorous, and slightly cynical tone.
+  expected_output: >
+    A polished DOCX file formatted for publication.
+
+generate_prompts_task:
+  description: >
+    Create text-based prompts for DALL-E 3 to generate images that complement the blog's content.
+  expected_output: >
+    A TXT file with detailed DALL-E 3 prompts.
